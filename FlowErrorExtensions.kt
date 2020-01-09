@@ -41,7 +41,7 @@ fun <T> Flow<T>.resumeOnError(errorBlock: () -> Throwable): Flow<T> {
  *    ...
  * }.mapOnError { e -> ThrowableA(...) }
  * .mapOnError { tA -> ThrowableB(...) }
- * .mapOnError { tC -> ThrowableC(...) }
+ * .mapOnError { tB -> ThrowableC(...) }
  * .catch { tb -> ... }
  */
 fun <T> Flow<T>.mapOnError(error: (Throwable) -> Throwable): Flow<T> = catch { throw error(it) }
